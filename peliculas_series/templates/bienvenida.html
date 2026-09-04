@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido a {{ nombre }}</title>
+    <style>
+        body {
+            background-color: #141414;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            color: #E50914;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+        }
+        p {
+            font-size: 1.2rem;
+            color: #cccccc;
+            margin-bottom: 30px;
+        }
+        .hero-image {
+            width: 80%;
+            max-width: 600px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.8);
+        }
+        .btn-entrar {
+            margin-top: 30px;
+            padding: 12px 30px;
+            background-color: #E50914;
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .btn-entrar:hover {
+            background-color: #b20710;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Bienvenido a {{ nombre }}</h1>
+    <p>Tu nuevo portal favorito para las mejores películas y series.</p>
+    
+    <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Cine y Series" class="hero-image">
+
+    <div style="margin: 20px 0; background: rgba(0,0,0,0.7); padding: 20px; border-radius: 10px;">
+        <h2>Destacados de {{ nombre }}</h2>
+        <p>Ya somos más de {{ usuarios }} usuarios registrados.</p>
+        
+        <ul style="list-style: none; padding: 0; font-size: 1.1rem;">
+            <!-- El ciclo for lee la lista de películas enviada desde views.py -->
+            {% for pelicula in peliculas %}
+                <li style="margin-bottom: 10px;">
+                    <strong style="color: #E50914;">{{ pelicula.titulo }}</strong> 
+                    ({{ pelicula.año }}) - {{ pelicula.genero }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <a href="/catalogo" class="btn-entrar">Ver Catálogo</a>
+
+</body>
+</html>
