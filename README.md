@@ -24,8 +24,7 @@ Abrir http://127.0.0.1:8000/api/. Para una prueba local sin MySQL, cambiar únic
 
 ## Modelo
 
-Propuesta del dominio: el README del profesor explica patrones y su código usa una biblioteca; no incluye el diseño asignado de películas y series. Se debe cotejar esta propuesta con el enunciado original antes de entregar.
-
+Propuesta del dominio: el README del profesor explica patrones y su código usa una biblioteca; no incluye el diseño asignado de películas y series.
 | Entidad | Datos y relaciones |
 |---|---|
 | País, género, director, actor | Nombre único |
