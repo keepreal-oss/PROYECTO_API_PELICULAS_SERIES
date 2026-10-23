@@ -1,0 +1,66 @@
+[
+  {
+    "model": "peliculas_series.genero",
+    "pk": 1,
+    "fields": {
+      "nombre": "Ciencia ficción",
+      "descripcion": "Historias de ciencia y tecnología imaginarias."
+    }
+  },
+  {
+    "model": "peliculas_series.director",
+    "pk": 1,
+    "fields": {
+      "nombre": "Alex Rivera (demo)",
+      "nacionalidad": "Chile"
+    }
+  },
+  {
+    "model": "peliculas_series.pelicula",
+    "pk": 1,
+    "fields": {
+      "titulo": "Viaje al horizonte",
+      "sinopsis": "Película ficticia para practicar la API.",
+      "fecha_estreno": "2024-01-15",
+      "duracion_minutos": 110,
+      "genero": 1,
+      "director": 1,
+      "created_at": "2024-01-01T12:00:00Z",
+      "updated_at": "2024-01-01T12:00:00Z"
+    }
+  },
+  {
+    "model": "peliculas_series.serie",
+    "pk": 1,
+    "fields": {
+      "titulo": "Estación del mañana",
+      "sinopsis": "Serie ficticia de demostración.",
+      "fecha_estreno": "2024-03-01",
+      "finalizada": false,
+      "genero": 1,
+      "director": 1,
+      "created_at": "2024-01-01T12:00:00Z",
+      "updated_at": "2024-01-01T12:00:00Z"
+    }
+  },
+  {
+    "model": "peliculas_series.temporada",
+    "pk": 1,
+    "fields": {
+      "serie": 1,
+      "numero": 1,
+      "titulo": "Primer contacto"
+    }
+  },
+  {
+    "model": "peliculas_series.episodio",
+    "pk": 1,
+    "fields": {
+      "temporada": 1,
+      "numero": 1,
+      "titulo": "La señal",
+      "sinopsis": "Comienza la historia.",
+      "duracion_minutos": 45
+    }
+  }
+]
