@@ -73,12 +73,4 @@ Las pruebas cubren todos los recursos y métodos, persistencia tras PATCH, borra
 - Entorno: `.env.example` versionado y `.env` privado para ejecutar.
 - GitHub: conservar historial y revisar la propuesta antes de fusionarla.
 
-## Preparación para la defensa
 
-1. ¿Qué hace el modelo? Define tablas, campos, restricciones y relaciones mediante el ORM de Django.
-2. ¿Para qué sirve una migración? Versiona cambios de estructura; `makemigrations` la crea y `migrate` la aplica.
-3. ¿Qué hace el serializer? Convierte registros a JSON y valida datos de entrada antes de guardar.
-4. ¿Qué aportan ModelViewSet y Router? El primero reúne acciones CRUD y el segundo genera las rutas que las invocan.
-5. ¿Por qué usar .env? Separa configuración y credenciales del código; `.gitignore` evita publicar los valores locales.
-
-Referencia de estructura: https://github.com/baileytorch/IEI_N4_C3. Se utiliza el ORM de Django, sin añadir SQLAlchemy porque no es necesario para estos modelos.
