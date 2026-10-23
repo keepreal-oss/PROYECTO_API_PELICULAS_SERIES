@@ -9,3 +9,5 @@ __pycache__/
 # Ejecutables del entorno virtual
 *.exe
 nombre_ambiente/
+.env
+.venv/

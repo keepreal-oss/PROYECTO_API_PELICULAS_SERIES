@@ -13,12 +13,14 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
+            box-sizing: border-box;
+            padding: 24px 16px;
             margin: 0;
             text-align: center;
         }
         h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 8vw, 3.5rem);
             margin-bottom: 10px;
             color: #E50914;
             text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
@@ -57,7 +59,7 @@
     
     <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Cine y Series" class="hero-image">
 
-    <div style="margin: 20px 0; background: rgba(0,0,0,0.7); padding: 20px; border-radius: 10px;">
+    <div id="catalogo" style="margin: 20px 0; background: rgba(0,0,0,0.7); padding: 20px; border-radius: 10px;">
         <h2>Destacados de {{ nombre }}</h2>
         <p>Ya somos más de {{ usuarios }} usuarios registrados.</p>
         
@@ -72,7 +74,7 @@
         </ul>
     </div>
 
-    <a href="/catalogo" class="btn-entrar">Ver Catálogo</a>
+    <a href="#catalogo" class="btn-entrar">Ver Catálogo</a>
 
 </body>
 </html>
