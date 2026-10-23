@@ -13,7 +13,9 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
+            padding: 24px 12px;
+            box-sizing: border-box;
             margin: 0;
             text-align: center;
         }
@@ -59,20 +61,22 @@
 
     <div style="margin: 20px 0; background: rgba(0,0,0,0.7); padding: 20px; border-radius: 10px;">
         <h2>Destacados de {{ nombre }}</h2>
-        <p>Ya somos más de {{ usuarios }} usuarios registrados.</p>
+        <p>{{ total_peliculas }} películas y {{ total_series }} series en el catálogo.</p>
         
         <ul style="list-style: none; padding: 0; font-size: 1.1rem;">
-            <!-- El ciclo for lee la lista de películas enviada desde views.py -->
+            <!-- Películas persistidas en la base de datos. -->
             {% for pelicula in peliculas %}
                 <li style="margin-bottom: 10px;">
                     <strong style="color: #E50914;">{{ pelicula.titulo }}</strong> 
-                    ({{ pelicula.año }}) - {{ pelicula.genero }}
+                    ({{ pelicula.fecha_estreno|date:"Y" }}) - {{ pelicula.genero.nombre }}
                 </li>
+            {% empty %}
+                <li>Aún no hay películas. Crea una desde la API.</li>
             {% endfor %}
         </ul>
     </div>
 
-    <a href="/catalogo" class="btn-entrar">Ver Catálogo</a>
+    <a href="/api/" class="btn-entrar">Ver Catálogo</a>
 
 </body>
 </html>

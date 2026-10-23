@@ -1,0 +1,91 @@
+# Peticiones para la extensión REST Client de VS Code o para copiar a Postman.
+# Ejecutar por separado. Actualizar los IDs con las respuestas de cada POST.
+# No ejecutar DELETE sobre registros que quieras conservar.
+@base = http://127.0.0.1:8000/api
+@genero_id = 1
+@director_id = 1
+@pelicula_id = 1
+@serie_id = 1
+@temporada_id = 1
+@episodio_id = 1
+
+### Crear género (nombre único; cambiarlo si ya existe)
+POST {{base}}/generos/
+Content-Type: application/json
+
+{"nombre":"Aventura de práctica","descripcion":"Prueba de API"}
+
+### Crear director
+POST {{base}}/directores/
+Content-Type: application/json
+
+{"nombre":"Camila Torres (demo)","nacionalidad":"Chile"}
+
+### Crear película
+POST {{base}}/peliculas/
+Content-Type: application/json
+
+{"titulo":"Horizonte azul","sinopsis":"Demo","fecha_estreno":"2024-06-10","duracion_minutos":105,"genero":{{genero_id}},"director":{{director_id}}}
+
+### Crear serie
+POST {{base}}/series/
+Content-Type: application/json
+
+{"titulo":"Rutas del sur","fecha_estreno":"2024-07-01","finalizada":false,"genero":{{genero_id}},"director":{{director_id}}}
+
+### Crear temporada
+POST {{base}}/temporadas/
+Content-Type: application/json
+
+{"serie":{{serie_id}},"numero":1,"titulo":"El comienzo"}
+
+### Crear episodio
+POST {{base}}/episodios/
+Content-Type: application/json
+
+{"temporada":{{temporada_id}},"numero":1,"titulo":"La partida","duracion_minutos":42}
+
+### Listar películas
+GET {{base}}/peliculas/
+
+### Consultar película
+GET {{base}}/peliculas/{{pelicula_id}}/
+
+### PUT: enviar todos los campos obligatorios
+PUT {{base}}/peliculas/{{pelicula_id}}/
+Content-Type: application/json
+
+{"titulo":"Horizonte azul editado","sinopsis":"Demo editada","fecha_estreno":"2024-06-10","duracion_minutos":110,"genero":{{genero_id}},"director":{{director_id}}}
+
+### PATCH: modificar solo la duración
+PATCH {{base}}/peliculas/{{pelicula_id}}/
+Content-Type: application/json
+
+{"duracion_minutos":120}
+
+### Error esperado 400: duración no válida
+PATCH {{base}}/peliculas/{{pelicula_id}}/
+Content-Type: application/json
+
+{"duracion_minutos":0}
+
+### Consultar demás colecciones
+GET {{base}}/generos/
+
+###
+GET {{base}}/directores/
+
+###
+GET {{base}}/series/
+
+###
+GET {{base}}/temporadas/
+
+###
+GET {{base}}/episodios/
+
+### Borrado de película: 204. Comprobar ID antes de ejecutar.
+DELETE {{base}}/peliculas/{{pelicula_id}}/
+
+### Después del borrado: 404 esperado
+GET {{base}}/peliculas/{{pelicula_id}}/
