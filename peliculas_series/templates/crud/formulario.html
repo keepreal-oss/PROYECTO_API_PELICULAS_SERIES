@@ -1,0 +1,1 @@
+{% extends 'base.html' %}{% block contenido %}<h2>{% if object %}Editar {{ object }}{% else %}Crear registro: {{ titulo }}{% endif %}</h2><p>Para elegir varios géneros o actores, mantén Ctrl mientras seleccionas.</p><form method="post">{% csrf_token %}{{ form.as_p }}<button type="submit">Guardar</button> <a href="{{ lista_url }}">Cancelar</a></form>{% endblock %}
