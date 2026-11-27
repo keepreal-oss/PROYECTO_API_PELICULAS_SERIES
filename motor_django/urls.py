@@ -4,6 +4,7 @@ from django.urls import include, path
 from peliculas_series import views
 
 urlpatterns = [
+    path('gestion/', include('peliculas_series.web_urls')),
     path('api/', include('peliculas_series.urls')),
     path('admin/', admin.site.urls),
     path('', views.bienvenida, name='bienvenida'),
